@@ -1,0 +1,16 @@
+<table class="table">
+  <thead>
+    <tr>
+      <th scope="col" *ngFor='let header of tableHeaders'>{{header}}</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor='let product of products | async'>
+      <td>{{product.name}}</td>
+      <td>{{product.category}}</td>
+      <td>{{product.price}}</td>
+      <td>{{product.createdDate}}</td>
+      <button type="button" class="btn btn-danger" [hidden]="!product.name" (click)="deleteObject(product)">Delete</button>
+    </tr>
+  </tbody>
+</table>

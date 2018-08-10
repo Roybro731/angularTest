@@ -1,0 +1,40 @@
+<div>
+  <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#addProductModal">Add Product</button>
+</div>>
+
+<!-- Modal -->
+<div class="modal fade" id="addProductModal" tabindex="-1" role="dialog" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="addProductLabel">ENTER PRODUCT</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div> 
+          <form #productForm="ngForm">
+              <div class="modal-body">
+                <div class="form-group">
+                  <label for="name">Name</label>
+                  <input type="text" class="form-control" id="name" maxlength="50" [(ngModel)]="product.name" name="name" required>
+                </div>
+                <div class="form-group">
+                  <label for="category">Category</label>
+                  <select class="form-control" id="category" [(ngModel)]="product.category" name="product" required>
+                    <option>Sports</option>
+                    <option>Toys</option>
+                  </select>
+                </div>
+                <div class="form-group">
+                    <label for="price">Price</label>
+                    <input type="number"  min="1" class="form-control" id="price" [(ngModel)]="product.price" name="price" required>
+                  </div>
+              </div>
+              <div class="modal-footer">
+                  <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                  <button type="submit" class="btn btn-primary" [disabled]="!productForm.form.valid" data-dismiss="modal" (click)="addProduct()">Save</button>
+              </div>
+          </form>
+    </div>
+  </div>
+</div>
